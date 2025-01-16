@@ -2,34 +2,23 @@
 import { useForm } from "react-hook-form";
 import React, { useState } from "react";
 import Input from "../Input/Input";
-import { buttons, formData } from "../../assets/data/data.js";
+import { formData } from "../../assets/data/data.js";
 import validationSchema from "@/utils/validationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ForgetPassword from "../ForgetPassword/ForgetPassword";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 const Login = () => {
-  const [code, setCode] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [verificationSuccess, setVerificationSuccess] = useState(false);
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log("Login submitted", { email, password, rememberMe });
-  //   setIsOpen(true); // Open verification popup after login
-  // };
+  const [showPassword, setShowPassword] = useState(false);
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting, isValid },
+    formState: { errors, },
   } = useForm({ mode: "onBlur", resolver: yupResolver(validationSchema) });
 
   const onSubmit = async (data) => {
-    // await new Promise((resolve) => setTimeout(resolve, 5000));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     console.log(data);
     setIsOpen(true);
   };
@@ -48,6 +37,8 @@ const Login = () => {
                 type={item.type}
                 id={item.id}
                 name={item.name}
+                showPassword={showPassword}
+                setShowPassword={setShowPassword}
                 placeholder={item.placeholder}
                 register={register}
                 validationSchema={validationSchema}
@@ -57,9 +48,6 @@ const Login = () => {
             <ForgetPassword />
           </div>
           <div className="flex flex-col gap-5">
-            {/* {buttons.map((item)=>(
-        <Button key={item.id} type={item.type} name={item.name}  text={item.text}/>
-       ))} */}
             <Button
               type="submit"
               name="login"
