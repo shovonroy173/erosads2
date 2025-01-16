@@ -4,10 +4,10 @@ const LeftText = () => {
   return (
     <div className="w-full md:w-[40%] lg:w-[60%] p-4 bg-neutral-900">
       <div>
-        <h3 className="text-white font-semibold mb-2.5">
-          The Ultimate Erotic Entertainmentgthfrtyrt
-        </h3>
-        <p className="text-[14px] text-[#9b9b9b] !mb-8">
+        <p className="text-white font-semibold mb-2.5 text-sm">
+          The Ultimate Erotic Entertainment
+        </p>
+        <p className="text-xs text-[#9b9b9b] !mb-8">
           We have been online since 1997 and are the world’s largest adult
           directory with over 100 locations worldwide. We pride ourselves in
           quality viewers, quality results, customer service, and advertiser
@@ -16,10 +16,10 @@ const LeftText = () => {
       </div>
 
       <div>
-        <h3 className="text-white font-semibold mb-2.5">
+        <h3 className="text-white font-semibold mb-2.5 text-sm">
           What Types of Ads Do You Offer?
         </h3>
-        <p className="text-[14px] text-[#9b9b9b] !mb-8">
+        <p className="text-[14px] text-[#9b9b9b] !mb-8 text-xs">
           We offer a wide variety of advertising options. Most advertisers start
           with a standard ad or visiting ad, and then customize their ads with
           such options as VIP upgrades or Premier Services to drive even more
@@ -29,10 +29,10 @@ const LeftText = () => {
       </div>
 
       <div>
-        <h3 className="text-white font-semibold mb-2.5">
+        <h3 className="text-white font-semibold mb-2.5 text-sm">
           What Does My Purchase Cover?
         </h3>
-        <p className="text-[14px] text-[#9b9b9b] !mb-8">
+        <p className="text-[14px] text-[#9b9b9b] !mb-8 text-xs">
           By purchasing an ad on the Eros Guide, you have secured a beautifully
           laid-out advertisement on the premier website for adult entertainment
           services. Since 1997 we have been dedicated to bringing you high

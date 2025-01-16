@@ -30,7 +30,7 @@ const Login = () => {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col gap-10">
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-4">
             {formData.map((item) => (
               <Input
                 key={item.id}

@@ -27,7 +27,7 @@ const Input = ({
         id={id}
         placeholder={placeholder}
         className="peer w-full rounded-md border border-neutral-600 bg-white/90 px-3 py-1
-           text-sm text-black placeholder-neutral-400 focus:outline-none"
+           text-xs text-black placeholder-neutral-400 placeholder:text-xs focus:outline-none"
         {...register(name, validationSchema)}
       />
       <label

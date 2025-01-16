@@ -8,33 +8,53 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-
 } from "@/components/ui/alert-dialog";
 const Modal = ({ isOpen, setIsOpen }) => {
   return (
-    <AlertDialog open={isOpen}>
-      {/* <AlertDialogTrigger asChild>
-        <Button variant="outline">Show Dialog</Button>
-      </AlertDialogTrigger> */}
-      <AlertDialogContent>
+
+<AlertDialog open={isOpen} className="relative ">
+      <AlertDialogContent >
         <AlertDialogHeader>
-          <AlertDialogTitle>Device Verification</AlertDialogTitle>
-          <AlertDialogDescription>
-            Please enter the verification code from your Google Authenticator
+          <AlertDialogTitle className="text-sm text-gray-800">Device Verification 1/2</AlertDialogTitle>
+          <AlertDialogDescription className="text-gray-600 text-sm font-semibold">
+            Please enter a{" "}
+            <span className="font-bold text-gray-900">Verification code</span>{" "}
+            for EROSADS from your{" "}
+            <span className="font-bold text-gray-900">
+              Google Authenticator{" "}
+            </span>
             app:
           </AlertDialogDescription>
-          <AlertDialogDescription>
-          Having trouble receiving the code? <span className="text-yellow-600">Contact Support</span> 
+          <AlertDialogDescription className="flex flex-col">
+            <label className="font-bold text-[10px] text-yellow-500 pl-5">Enter your code here*</label>
+            <input
+              type="text"
+              
+              className="w-[70%] h-7  bg-gray-200 rounded-sm px-5 text-black outline-none"
+              placeholder="_ _ _  _ _ _"
+            />
+          </AlertDialogDescription>
+          <AlertDialogDescription className="text-gray-800 text-xs font-semibold">
+            Having trouble receiving the code, You can contact the 
+             <span className="text-yellow-500 underline pl-1">Support</span>
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel onClick={() => setIsOpen(false)}>
-            Cancel
+
+        <AlertDialogFooter className="absolute -bottom-10 right-0">
+          <AlertDialogCancel
+            onClick={() => setIsOpen(false)}
+            className="rounded-sm w-[120px] h-[35px] border border-gray-200 bg-transparent text-gray-200 font-bold text-sm"
+          >
+            CANCEL
           </AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogAction className="rounded-sm w-[120px] h-[35px] border border-yellow-600 bg-transparent text-yellow-600 font-bold text-sm">
+            VERIFY
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
+
+    
   );
 };
 
