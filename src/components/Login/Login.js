@@ -7,14 +7,17 @@ import validationSchema from "@/utils/validationSchema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import ForgetPassword from "../ForgetPassword/ForgetPassword";
 import Button from "../Button/Button";
-import Modal from "../Modal/Modal";
+import { VerificationModal, SuccessModal } from "../Modal/Modal";
 const Login = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isVerify, setIsVerify] = useState(false);
+  const autoCloseTime = 5;
+  const [timeLeft, setTimeLeft] = useState(autoCloseTime);
   const {
     register,
     handleSubmit,
-    formState: { errors, },
+    formState: { errors },
   } = useForm({ mode: "onBlur", resolver: yupResolver(validationSchema) });
 
   const onSubmit = async (data) => {
@@ -22,7 +25,13 @@ const Login = () => {
     console.log(data);
     setIsOpen(true);
   };
+  const handleOtp = async (data) => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    console.log("LINE AT 30 handleOTP", data.otp);
+    setIsVerify(true);
+    setIsOpen(false);
 
+  };
   return (
     <div className="bg-black w-full md:w-[420px] rounded-md px-6 py-12   flex flex-col gap-10 ">
       <div>
@@ -63,10 +72,28 @@ const Login = () => {
           </div>
         </div>
       </form>
-      {isOpen && 
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen}/>
-      
-      }
+      {isOpen && (
+        <VerificationModal
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          type="text"
+          id="otp"
+          name="otp"
+          register={register}
+          handleSubmit={handleSubmit}
+          handleOtp={handleOtp}
+          isVerify={isVerify}
+        />
+      )}
+      {isVerify && (
+        <SuccessModal
+        isVerify={isVerify}
+        setIsVerify={setIsVerify}
+          autoCloseTime={autoCloseTime}
+          timeLeft={timeLeft}
+          setTimeLeft={setTimeLeft}
+        />
+      )}
     </div>
   );
 };
